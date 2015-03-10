@@ -1,0 +1,66 @@
+\chapter*{БИБЛИОГРАФИЧЕСКИЙ СПИСОК}
+\addcontentsline{toc}{chapter}{БИБЛИОГРАФИЧЕСКИЙ СПИСОК}
+
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+
+\bibitem{Kotelnikov}
+\selectlanguageifdefined{russian}
+Котельников,~И.~А. \LaTeXe{} по-русски~/ И.~А. Котельников, П.~З.
+  Чеботаев. ---
+\newblock 3-е {\cyr\cyri\cyrz\cyrd.} ---
+\newblock Сибирский хронограф, 2004.
+
+\bibitem{article}
+\selectlanguageifdefined{english}
+Author,~A.~A. Long title~/ A.~A. Author~// Journal name. ---
+\newblock 2008. ---
+\newblock Vol.~11. ---
+\newblock P.~11--25.
+
+\bibitem{proc}
+\selectlanguageifdefined{english}
+Author,~A.~A. Paper title~// Proceedings of the conference. ---
+\newblock 2006. ---
+\newblock P.~23--29.
+\end{thebibliography}
+
+
+% For BibTeX
+% \bibliographystyle{gost780u}
+% \bibliography{bibtexbase}
+
+\begin{mybibliography}{8}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+
+\bibitem{myarticle}
+\selectlanguageifdefined{english}
+Author, A.A. Long title~/ A.A. Author, V.A. Piatrou~//
+  Journal name. ---
+\newblock 2008. ---
+\newblock Vol.~1. ---
+\newblock P.~10--15.
+
+\bibitem{myproc}
+\selectlanguageifdefined{english}
+Piatrou, V.A. My paper title~// Proceedings of the conference.
+
+\bibitem{myrussianarticle}
+\selectlanguageifdefined{russian}
+Петров, В.А. Название статьи~/ В.А. Петров~//
+  Название журнала. ---
+\newblock 2007. ---
+\newblock \CYRT.~10. ---
+\newblock {\cyr\CYRS.}~110--114.
+
+\bibitem{mybook}
+\selectlanguageifdefined{russian}
+Петров, В.А. Название книги~/ В.А. Петров ---
+\newblock 1-е  {\cyr\cyri\cyrz\cyrd.} ---
+\newblock Название издательства, 2006.
+
+\end{mybibliography}

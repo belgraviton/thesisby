@@ -1,0 +1,28 @@
+\documentclass[rus]{thesisby}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+
+%для борьбы с переполнениями за счет разреженных слов в абзаце
+\emergencystretch=25pt
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{longtable, array}
+\usepackage{graphicx, epsfig}
+
+\usepackage{textcomp}% For Celsium sign only
+
+\graphicspath{{fig/}}
+
+\begin{document}
+\include{longtabledef}% For long tables. Required package `longtable`.
+
+\include{titlepage}
+\tableofcontents
+
+\include{text}
+\include{bib}
+
+\appendix
+\include{appendix}
+
+\end{document}
