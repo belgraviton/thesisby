@@ -1,12 +1,12 @@
 %%
 %% This is file `thesisby.cls',
-%% modifided from the class `dissert.cls' (author: Andrew Martovlos).
+%% modifided from the class `dissert.cls'.
 %% Need package `geometry'.
 %%
-%% Author: Piatrou Vadzim <PiatrouVadzim@tut.by>, 2008
-%%
+%% Author: Piatrou Vadzim <thesisby@tut.by>, 2009
+%% Web site: thesisby.at.tut.by
 %% Class: thesisby
-%% Options: a4paper+, draft, final+, leqno, fleqn, openbib, rus, bel ('+' default)
+%% Options: a4paper+, draft, final+, leqno, fleqn, openbib, rus+, bel ('+' default)
 %% Paper size: A4
 %% Margins: top 2cm, bottom 2cm, left 3cm, right 1cm
 %% Type: portrait, oneside, onecolumn
@@ -49,8 +49,8 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{thesisby}
-              [2008/12/08 v0.82
- Non standard LaTeX document class]
+              [2009/05/15 v0.9
+LaTeX document class for thesis and report]
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
     \setlength\paperwidth  {210mm}}
@@ -70,8 +70,8 @@
 }% End of the AtEndOfPackage
 }% End of the \DeclareOption{openbib}
 
-\AtBeginDocument{%
 
+\AtBeginDocument{%
  \@ifpackageloaded{hyperref}{% Extension of the package hyperref
     \newcommand{\hyp@def}[1]{\hyperdef{cite}{#1}{}}
  }{
@@ -90,59 +90,96 @@
     \fi
     \endgraf\vskip\baselineskip}%
   \hss}}}
- }% End of the extension of the package longtable	
+ }% End of the extension of the package longtable
 
 }% End of the \AtBeginDocument{
 
-\newcommand\contentsn@me{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
-\newcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
-\newcommand\listtablen@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
-\newcommand\bibn@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh{}  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}}%
-\newcommand\mybibn@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya}}%
-\newcommand\indexn@me{{\cyr\CYRP\CYRR\CYRE\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY\CYRISHRT{} \CYRU\CYRK\CYRA\CYRZ\CYRA\CYRT\CYRE\CYRL\CYRSFTSN}}%
-\newcommand\figuren@me{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
-\newcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
-\newcommand\chaptern@me{{\cyr\CYRG\CYRL\CYRA\CYRV\CYRA}}%
-\newcommand\eqremn@me{{\cyr\cyrg\cyrd\cyre}}%
-\newcommand\appendixn@me{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
-\newcommand\commentn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
-\newcommand\commentsn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
 
+% Names
 
-\DeclareOption{rus}{%
-\renewcommand\contentsn@me{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
-\renewcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
-\renewcommand\listtablen@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
-\renewcommand\bibn@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh{}  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}}%
-\renewcommand\mybibn@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya}}%
-\renewcommand\indexn@me{{\cyr\CYRP\CYRR\CYRE\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY\CYRISHRT{} \CYRU\CYRK\CYRA\CYRZ\CYRA\CYRT\CYRE\CYRL\CYRSFTSN}}%
-\renewcommand\figuren@me{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
-\renewcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
-\renewcommand\chaptern@me{{\cyr\CYRG\CYRL\CYRA\CYRV\CYRA}}%
-\renewcommand\eqremn@me{{\cyr\cyrg\cyrd\cyre}}%
-\renewcommand\appendixn@me{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
-\renewcommand\commentn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
-\renewcommand\commentsn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
-}%End of the \DeclareOption{rus}
+\newcommand\contentsname{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
+\newcommand\listfigurename{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
+\newcommand\listtablename{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
+\newcommand\bibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh{}  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}}%
+\newcommand\mybibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya}}%
+\newcommand\indexname{{\cyr\CYRP\CYRR\CYRE\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY\CYRISHRT{} \CYRU\CYRK\CYRA\CYRZ\CYRA\CYRT\CYRE\CYRL\CYRSFTSN}}%
+\newcommand\figurename{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
+\newcommand\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
+\newcommand\chaptername{{\cyr\CYRG\CYRL\CYRA\CYRV\CYRA}}%
+\newcommand\eqremname{{\cyr\cyrg\cyrd\cyre}}%
+\newcommand\appendixname{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
+\newcommand\commentname{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
+\newcommand\commentsname{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
+
+%Russian language
+\newcommand{\selectlanguagerus}{
+\renewcommand\contentsname{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
+\renewcommand\listfigurename{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
+\renewcommand\listtablename{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
+\renewcommand\bibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh{}  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}}%
+\renewcommand\mybibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya}}%
+\renewcommand\indexname{{\cyr\CYRP\CYRR\CYRE\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY\CYRISHRT{} \CYRU\CYRK\CYRA\CYRZ\CYRA\CYRT\CYRE\CYRL\CYRSFTSN}}%
+\renewcommand\figurename{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
+\renewcommand\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
+\renewcommand\chaptername{{\cyr\CYRG\CYRL\CYRA\CYRV\CYRA}}%
+\renewcommand\eqremname{{\cyr\cyrg\cyrd\cyre}}%
+\renewcommand\appendixname{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
+\renewcommand\commentname{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
+\renewcommand\commentsname{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
+}%End of newcommand
+
+%Belarussian language
+\newcommand{\selectlanguagebel}{
+\renewcommand\contentsname{{\cyr\CYRZ\CYRM\CYRE\CYRS\CYRT}}%
+\renewcommand\listfigurename{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrr\cyrery\cyrs\cyru\cyrn\cyrk\cyra\cyrushrt}}%
+\renewcommand\listtablename{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrt\cyra\cyrb\cyrl\cyrii\cyrc}}%
+\renewcommand\bibname{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrv\cyrery\cyrk\cyra\cyrr\cyrery\cyrs\cyrt\cyra\cyrn\cyrery\cyrh{}  \cyrk\cyrr\cyrery\cyrn\cyrii\cyrc}}%
+\renewcommand\mybibname{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrp\cyru\cyrb\cyrl\cyrii\cyrk\cyra\cyrc\cyrery\cyrishrt{} \cyrs\cyrp\cyra\cyrsh\cyru\cyrk\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk\cyra}}%
+\renewcommand\indexname{{\cyr\CYRP\CYRR\CYRA\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY{} \CYRP\CYRA\CYRK\CYRA\CYRZ\CYRA\CYRL\CYRSFTSN\CYRN\CYRI\CYRK}}%
+\renewcommand\figurename{{\cyr\CYRR\cyrery\cyrs\cyru\cyrn\cyra\cyrk}}%
+\renewcommand\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyra}}%
+\renewcommand\chaptername{{\cyr\CYRR\CYRA\CYRZ\CYRD\CYRZ\CYRE\CYRL}}%
+\renewcommand\eqremname{{\cyr\cyrd\cyrz\cyre}}%
+\renewcommand\appendixname{{\cyr\CYRD\CYRA\CYRD\CYRA\CYRT\CYRA\CYRK}}%
+\renewcommand\commentname{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyra}}%
+\renewcommand\commentsname{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyrii}}%
+}%End of newcommand
+
+%Language options
+\newcommand{\languagesetup}{\selectlanguagerus}
+\newcommand{\contentsnamerep}{\cyr\CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}
+\newcommand{\@appendixnameposition}{\hfill}
 
 \DeclareOption{bel}{%
-\renewcommand\contentsn@me{{\cyr\CYRZ\cyrm\cyre\cyrs\cyrt}}%
-\renewcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrr\cyrery\cyrs\cyru\cyrn\cyrk\cyra\cyrushrt}}%
-\renewcommand\listtablen@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrt\cyra\cyrb\cyrl\cyrii\cyrc}}%
-\renewcommand\bibn@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrv\cyrery\cyrk\cyra\cyrr\cyrery\cyrs\cyrt\cyra\cyrn\cyrery\cyrh{}  \cyrk\cyrr\cyrery\cyrn\cyrii\cyrc}}%
-\renewcommand\mybibn@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrp\cyru\cyrb\cyrl\cyrii\cyrk\cyra\cyrc\cyrery\cyrishrt{} \cyrs\cyrp\cyra\cyrsh\cyru\cyrk\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk\cyra}}%
-\renewcommand\indexn@me{{\cyr\CYRP\CYRR\CYRA\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY{} \CYRP\CYRA\CYRK\CYRA\CYRZ\CYRA\CYRL\CYRSFTSN\CYRN\CYRI\CYRK}}%
-\renewcommand\figuren@me{{\cyr\CYRR\cyrery\cyrs\cyru\cyrn\cyra\cyrk}}%
-\renewcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyra}}%
-\renewcommand\chaptern@me{{\cyr\CYRR\CYRA\CYRZ\CYRD\CYRZ\CYRE\CYRL}}%
-\renewcommand\eqremn@me{{\cyr\cyrd\cyrz\cyre}}%
-\renewcommand\appendixn@me{{\cyr\CYRD\CYRA\CYRD\CYRA\CYRT\CYRA\CYRK}}%
-\renewcommand\commentn@me{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyra}}%
-\renewcommand\commentsn@me{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyrii}}%
+\renewcommand{\languagesetup}{\selectlanguagebel}
+\renewcommand{\contentsnamerep}{\cyr\CYRZ\cyrm\cyre\cyrs\cyrt}
 }%End of the \DeclareOption{bel}
+
+\DeclareOption{rus}{%
+}%End of the \DeclareOption{rus}
+
+\AtBeginDocument{%
+%Assignment of standart names
+\addto{\captionsrussian}{\languagesetup}
+}% End of the \AtBeginDocument{
+
+
+
+\DeclareOption{rep}{%
+\renewcommand{\@appendixnameposition}{\centering}
+\AtBeginDocument{%
+\addtolength{\l@sectionnumwidth}{-0.7em}
+\addtolength{\l@subsectionnumwidth}{-0.7em}
+\addtolength{\l@subsubsectionnumwidth}{-0.7em}
+
+\addto{\captionsrussian}{\renewcommand{\contentsname}{\contentsnamerep}}
+}% End of the \AtBeginDocument{
+}%End of the \DeclareOption{rep}
+
 
 \ExecuteOptions{a4paper,final}
 \ProcessOptions
+
 
 %%
 %% Fonts sizes and values
@@ -339,10 +376,10 @@
 \newcounter {subsection}[section]
 \newcounter {subsubsection}[subsection]
 \renewcommand \thechapter {\@arabic\c@chapter}
-\renewcommand \thesection {\thechapter.\@arabic\c@section}
+\renewcommand \thesection {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@section}
 \renewcommand\thesubsection   {\thesection.\@arabic\c@subsection}
 \renewcommand\thesubsubsection{\thesubsection.\@arabic\c@subsubsection}
-\newcommand\@chapapp{\chaptern@me}
+\newcommand\@chapapp{\chaptername}
 \newcommand{\@chapternameposition}{\centering}
 \newcommand\chapter{\clearpage
                     \global\@topnum\z@
@@ -444,11 +481,11 @@
                         \itemindent    \listparindent
                         \rightmargin   \leftmargin
                         \parsep        \z@ \@plus\p@}%
-                \item \small \commentn@me{} - \relax}
+                \item \small \commentname{} - \relax}
                {\end{list}}
 
 \newenvironment{comments}
-               {\noindent\hspace{4em}\small\commentsn@me{}\relax%
+               {\noindent\hspace{4em}\small\commentsname{}\relax%
 	        \begin{list}{\@arabic\c@quotetionnum.\hfill}{\usecounter{quotetionnum}\listparindent 1.7em%
         	    \labelsep = 0pt%
             	    \labelwidth = 1.5em%
@@ -477,8 +514,8 @@
 \newlength\Gost@EqRemLen
 \newlength\Gost@@EqRemLen
 \newenvironment{eqrem}{%
- \begin{tabular}{@{}p{\Gost@@EqRemLen}p{\Gost@EqRemLen}}
-{\eqremn@me}&%
+ \begin{tabular}{@{}p{\Gost@@EqRemLen}@{ }p{\Gost@EqRemLen}}
+{\eqremname}&%
 }{%
  \end{tabular}
 }
@@ -487,7 +524,7 @@
  \makeatletter%
   \setlength\Gost@EqRemLen{\textwidth}%
   \addtolength\Gost@EqRemLen{-10mm}%
-  \settowidth\Gost@@EqRemLen{{\eqremn@me}}%
+  \settowidth\Gost@@EqRemLen{{\eqremname}}%
   \addtolength\Gost@EqRemLen{-\Gost@@EqRemLen}%
  \makeatother%
 }
@@ -495,9 +532,10 @@
 \newcommand\appendix{\par
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
-  \renewcommand{\@chapternameposition}{\hfill}
-  \gdef\@chapapp{\appendixn@me}%
-  \gdef\thechapter{\@Asbuk\c@chapter}}
+  \renewcommand{\@chapternameposition}{\@appendixnameposition}
+  \gdef\@chapapp{\appendixname}%
+  \gdef\thechapter{\@Asbuk\c@chapter}
+}%End of the appendix
 
 %Figures and tables
 \setlength\arraycolsep{5\p@}
@@ -517,7 +555,7 @@
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
 \def\ext@figure{lof}
-\def\fnum@figure{\figuren@me~\thefigure}
+\def\fnum@figure{\figurename~\thefigure}
 \newenvironment{figure}
                {\@float{figure}}
                {\end@float}
@@ -530,7 +568,7 @@
 \def\fps@table{tbp}
 \def\ftype@table{2}
 \def\ext@table{lot}
-\def\fnum@table{\tablen@me~\thetable}
+\def\fnum@table{\tablename~\thetable}
 \newenvironment{table}
                {\@float{table}}
                {\end@float}
@@ -565,7 +603,7 @@
 \newcommand\@dotsep{4.5}
 \setcounter{tocdepth}{2}
 \newcommand\tableofcontents{%
-     \chapter*{\contentsn@me}%
+     \chapter*{\contentsname}%
      \@starttoc{toc}%
      }
 \newcommand*\l@chapter[2]{%
@@ -583,16 +621,27 @@
       \penalty\@highpenalty
     \endgroup
   \fi}
-\newcommand*\l@section{\@dottedtocline{1}{1em}{2.3em}}
-\newcommand*\l@subsection{\@dottedtocline{2}{2em}{3.2em}}
-\newcommand*\l@subsubsection{\@dottedtocline{3}{3em}{4.1em}}
+
+
+\newlength{\l@sectionnumwidth}
+\setlength{\l@sectionnumwidth}{2.3em}
+\newlength{\l@subsectionnumwidth}
+\setlength{\l@subsectionnumwidth}{3.2em}
+\newlength{\l@subsubsectionnumwidth}
+\setlength{\l@subsubsectionnumwidth}{4.1em}
+
+\newcommand*\l@section{\@dottedtocline{1}{0.5em}{\l@sectionnumwidth}}
+\newcommand*\l@subsection{\@dottedtocline{2}{1em}{\l@subsectionnumwidth}}
+\newcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{\l@subsubsectionnumwidth}}
+
+
 \newcommand\listoffigures{%
-    \chapter*{\listfiguren@me}%
+    \chapter*{\listfigurename}%
     \@starttoc{lof}%
     }
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand\listoftables{%
-    \chapter*{\listtablen@me}%
+    \chapter*{\listtablename}%
     \@starttoc{lot}%
     }
 \let\l@table\l@figure
@@ -601,12 +650,16 @@
 \newdimen\bibindent
 \setlength\bibindent{1.5em}
 \newenvironment{thebibliography}[1]
-     {\section*{\bibn@me}%
-     \addcontentsline{toc}{section}{\bibn@me}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
+     {\section*{\bibname}%
+     \addcontentsline{toc}{section}{\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}\hfill}%
            {\settowidth\labelwidth{\@biblabel{#1.}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
+		\setlength\labelsep{0em}
+		\leftmargin = 0mm
+		\itemindent = \leftmargin
+		\advance\itemindent\parindent
+		\advance\itemindent\labelwidth
+		\advance\itemindent\labelsep
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
@@ -618,21 +671,25 @@
       \sfcode`\.\@m}
      {\def\@noitemerr
        {\@latex@warning{Empty `thebibliography' environment}}%
+	\setlength\labelsep{0.5em}
       \endlist}
 \newenvironment{mybibliography}[1]
-     {\section*{\mybibn@me}%
-     \addcontentsline{toc}{section}{\mybibn@me}%
-     \list{
-	\@biblabel{\@arabic\c@enumiv --A}}%
-           {\settowidth\labelwidth{\@biblabel{#1 --A.}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
+     {\section*{\mybibname}%
+     \addcontentsline{toc}{section}{\mybibname}%
+     \list{\@biblabel{\@arabic\c@enumiv--A}\hfill}%
+           {\settowidth\labelwidth{\@biblabel{#1--A.}}%
+		\setlength\labelsep{0em}
+		\leftmargin = 0mm
+		\itemindent = \leftmargin
+		\advance\itemindent\parindent
+		\advance\itemindent\labelwidth
+		\advance\itemindent\labelsep
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
             \renewcommand\theenumiv{\@arabic\c@enumiv}
 		\renewcommand\bibitem[1]{\item\hyp@def{##1}\if@filesw \immediate\write\@auxout
-	       {\string\bibcite{##1}{\@arabic\c@enumiv --A}}\fi\ignorespaces}%
+	       {\string\bibcite{##1}{\@arabic\c@enumiv--A}}\fi\ignorespaces}%
 	    }%end of the second argument of the \list 
       \sloppy
       \clubpenalty4000
@@ -641,6 +698,7 @@
       \sfcode`\.\@m}%
      {\def\@noitemerr
        {\@latex@warning{Empty `mybibliography' environment}}%
+	\setlength\labelsep{0.5em}
       \endlist}
 \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
 \let\@openbib@code\@empty
@@ -648,9 +706,9 @@
                {
                 \columnseprule \z@
                 \columnsep 35\p@
-                \twocolumn[\@makeschapterhead{\indexn@me}]%
-                \@mkboth{\MakeUppercase\indexn@me}%
-                        {\MakeUppercase\indexn@me}%
+                \twocolumn[\@makeschapterhead{\indexname}]%
+                \@mkboth{\MakeUppercase\indexname}%
+                        {\MakeUppercase\indexname}%
                 \thispagestyle{plain}\parindent\z@
                 \parskip\z@ \@plus .3\p@\relax
                 \let\item\@idxitem}
