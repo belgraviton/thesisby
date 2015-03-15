@@ -3,7 +3,20 @@
 %% modifided from the class `dissert.cls'.
 %% Need package `geometry'.
 %%
-%% Author: Piatrou Vadzim <thesisby@tut.by>, 2009
+%% Copyright 2008-2012 V. A. Piatrou <thesisby@tut.by>
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is V. A. Piatrou
+%%
 %% Web site: thesisby.at.tut.by
 %% Class: thesisby
 %% Options: a4paper+, draft, final+, leqno, fleqn, openbib, rus+, bel ('+' default)
@@ -49,8 +62,8 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{thesisby}
-              [2009/05/15 v0.9
-LaTeX document class for thesis and report]
+              [2012/07/15 v1.0
+LaTeX document class for thesis]
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
     \setlength\paperwidth  {210mm}}
@@ -391,7 +404,7 @@ LaTeX document class for thesis and report]
                          \addcontentsline{toc}{chapter}%
 %				{\protect\numberline{\thechapter}#1}%
                                 {\normalfont
-                    \@chapapp\space\thechapter. #1}%
+                    \@chapapp\space\thechapter\space\space{} #1}%
                     \else
                       \addcontentsline{toc}{chapter}%
                        {\normalfont
@@ -663,7 +676,8 @@ LaTeX document class for thesis and report]
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+            \renewcommand\theenumiv{\@arabic\c@enumiv}
+	    }
       \sloppy
       \clubpenalty4000
       \@clubpenalty \clubpenalty
@@ -672,6 +686,7 @@ LaTeX document class for thesis and report]
      {\def\@noitemerr
        {\@latex@warning{Empty `thebibliography' environment}}%
 	\setlength\labelsep{0.5em}
+      %\renewcommand\labelenumiv{\theenumiv.}
       \endlist}
 \newenvironment{mybibliography}[1]
      {\section*{\mybibname}%
