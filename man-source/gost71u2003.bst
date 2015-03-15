@@ -1,13 +1,10 @@
 %%
-%% This is file `gost780s.bst',
-%% generated with the docstrip utility.
+%% This is file `gost71u2003.bst',
+%% modified from `gost780u.bst' (author: Maksym Polyakov).
 %%
-%% The original source files were:
-%%
-%% plainu.dtx  (with options: `gost780s')
 %% 
-%% Copyright 1996-2003 Maksym Polyakov.
-%% Version 2003.08.10
+%% Copyright 2009-2012 Vadzim Piatrou.
+%% Version 0.6
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.2
@@ -18,22 +15,13 @@
 %% version 1999/12/01 or later.
 %% 
 %% Please, send bug reports via e-mail:
-%%   polyama at auburn dot edu
-%% 
-%% contributions:
-%% 
-%% 06.06.2003 by Konstantin Vorontsov:
-%% New ENTRY "annote" added for output annotations.
-%% New commands BibUrl, BibAnnote added for customize urls and annotations.
-%% 
-%% 10.08.2003
-%% New command BibEmph added for customize emphasizing.
+%%   thesisby@tut.by 
 %% 
 %% 
 %%
 %% This bibliography style attempts
 %% to format bibliography according to
-%% GOST 7.1-84 and GOST 7.80-00
+%% GOST 7.1-2003
 %%
 %% For the Ukrainian|Russian bibliographic entries
 %% you need to create field
@@ -41,8 +29,6 @@
 %% Default language is English.
 %% Field numpages for books must contain number of pages.
 %% Optional field url will format url (using hyperref, if loaded).
-%%
-%% See examples in gost71.pdf and gost780.pdf
 %%
 %% Requires 8-bit bibtex with switch -B and csf file supporting cyrillic.
 %% bibtex8 -B -c <encoding>.csf <your_document>
@@ -393,12 +379,12 @@ FUNCTION {bbl.of}      %  { "\bblof{}" }
 
 FUNCTION {bbl.etal}      %  { "\bblof{}" }
 {  curlanguage "english" =
-    {"et~al."}
+    {"[et~al]"}
     { curlanguage "ukrainian" =
-        {"{\cyr\cyrt\cyra~\cyrii\cyrn.}"}
+        {"[{\cyr\cyrt\cyra~\cyrii\cyrn.}]"}
         { curlanguage "russian" =
-           {"{\cyr\cyri~\cyrd\cyrr.}"}
-           {"language is not defined: " language  "at al" * * warning$ "at al."}
+           {"[{\cyr\cyri~\cyrd\cyrr.}]"}
+           {"language is not defined: " language  "[et al]" * * warning$ "[et al]"}
          if$}
       if$}
   if$
@@ -426,7 +412,7 @@ FUNCTION {bbl.number}  %  { "\bblnumber{}" }
 
 FUNCTION {bbl.nr}     %   { "\bblno{}" }
 {  curlanguage "english" =
-    {"no."}
+    {"{\cyr\textnumero}"}
     { curlanguage "ukrainian" = curlanguage "russian" = or
            {"{\cyr\textnumero}"}
            {"language is not defined: " language  "no." * * warning$ "no."}
@@ -436,7 +422,7 @@ FUNCTION {bbl.nr}     %   { "\bblno{}" }
 
 FUNCTION {bbl.nnr}     %   { "\bblno{}" }
 {  curlanguage "english" =
-    {"No."}
+    {"{\cyr\textnumero}"}
     { curlanguage "ukrainian" = curlanguage "russian" = or
            {"{\cyr\textnumero}"}
            {"language is not defined: " language  "No." * * warning$ "No."}
@@ -486,10 +472,10 @@ FUNCTION {bbl.page}   %   { "\bblp."
 
 FUNCTION {bbl.ppages}%    { "\bblPp." }
 {  curlanguage "english" =
-    {"Pp."}
+    {"P."}
     { curlanguage "ukrainian" = curlanguage "russian" = or
            {"{\cyr\CYRS.}"}
-           {"language is not defined: " language  "Pp." * * warning$ "Pp."}
+           {"language is not defined: " language  "P." * * warning$ "P."}
       if$}
   if$
 }
@@ -556,7 +542,7 @@ FUNCTION {format.names.rev}
 FUNCTION {format.authors}
 { author empty$
     { "" }
-    { author format.names emphasize}
+    { author format.names}
   if$
 }
 
@@ -669,19 +655,9 @@ FUNCTION {word.in}
 
 FUNCTION {format.date}
 { year empty$
-    { month empty$
-        { "" }
-        { "there's a month but no year in " cite$ * warning$
-          month
-        }
-      if$
-    }
-    { month empty$
-        'year
-        { month " " * year * }
-      if$
-    }
-  if$
+{ "" }
+'year
+if$
 }
 
 FUNCTION {format.btitle}
@@ -982,7 +958,7 @@ FUNCTION {article}
   new.slash
   author.after
   new.dblslash
-  journal emphasize "journal" output.check
+  journal "journal" output.check
   new.block
   format.date output
   new.block
@@ -993,7 +969,6 @@ FUNCTION {article}
   new.block
   note output
   new.sentence
-  format.url output
   format.annote output
   fin.entry
 }
@@ -1103,6 +1078,8 @@ FUNCTION {inproceedings}
   author.before
   new.sentence
   format.title "title" output.check
+  new.slash
+  author.after
   new.dblslash
   booktitle "booktitle" output.check
   new.slash
@@ -1361,118 +1338,6 @@ MACRO {tcs} {"Theoretical Computer Science"}
 READ
 
 
-FUNCTION {sortify}
-{ purify$
-  "l" change.case$
-}
-
-INTEGERS { len }
-
-FUNCTION {chop.word}
-{ 's :=
-  'len :=
-  s #1 len substring$ =
-    { s len #1 + global.max$ substring$ }
-    's
-  if$
-}
-
-FUNCTION {sort.format.names}
-{ 's :=
-  #1 'nameptr :=
-  ""
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-    { namesleft #0 > }
-    { nameptr #1 >
-        { "   " * }
-        'skip$
-      if$
-      s nameptr
-      "{vv{ } }{ll{ }}{  f{ }}{  jj{ }}"
-      format.name$ 't :=
-      nameptr numnames = t "others" = and
-        { "et al" * }
-        { t sortify * }
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
-  while$
-}
-
-FUNCTION {sort.format.title}
-{ 't :=
-  "A " #2
-    "An " #3
-      "The " #4 t chop.word
-    chop.word
-  chop.word
-  sortify
-  #1 global.max$ substring$
-}
-
-FUNCTION {author.sort}
-{ author empty$
-    { key empty$
-        { "to sort, need author or key in " cite$ * warning$
-          ""
-        }
-        { key sortify }
-      if$
-    }
-    {
-      author num.names$ #4 <
-        {author sort.format.names }
-        {title sort.format.title}
-      if$
-    }
-  if$
-}
-
-FUNCTION {author.title.sort}
-{ author empty$
-    { title empty$
-        { key empty$
-            { "to sort, need author, title, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
-          if$
-        }
-        { title sort.format.title }
-      if$
-    }
-    {
-      author num.names$ #4 <
-        {author sort.format.names }
-        {title sort.format.title}
-      if$
-     }
-  if$
-}
-
-FUNCTION {presort}
-{
-  author.title.sort
-  "   "
-  *
-  year field.or.null sortify
-  *
-  "   "
-  *
-  title field.or.null
-  sort.format.title
-  *
-  #1 entry.max$ substring$
-  'sort.key$ :=
-}
-
-ITERATE {presort}
-
-SORT
-
-
 STRINGS { longest.label }
 
 INTEGERS { number.label longest.label.width }
@@ -1527,4 +1392,4 @@ FUNCTION {end.bib}
 EXECUTE {end.bib}
 
 %%
-%% End of file `gost780s.bst'.
+%% End of file `gost71u2003.bst'.
