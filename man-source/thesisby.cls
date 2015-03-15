@@ -49,7 +49,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{thesisby}
-              [2008/3/30 v0.8
+              [2008/12/08 v0.82
  Non standard LaTeX document class]
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
@@ -66,9 +66,34 @@
       \listparindent \itemindent
       \parsep \z@
       }%
-   \renewcommand\newblock{\par}}%
-}
-\DeclareOption{rus}{%
+   \renewcommand\newblock{\par}
+}% End of the AtEndOfPackage
+}% End of the \DeclareOption{openbib}
+
+\AtBeginDocument{%
+
+ \@ifpackageloaded{hyperref}{% Extension of the package hyperref
+    \newcommand{\hyp@def}[1]{\hyperdef{cite}{#1}{}}
+ }{
+    \newcommand{\hyp@def}[1]{}
+}% End of the extension of the package hyperref
+
+ \@ifpackageloaded{longtable}{% Extension of the package longtable
+ \LTcapwidth=17cm
+  \def\LT@makecaption#1#2#3{%
+  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
+    \sbox\@tempboxa{#1{#2 -- }#3}%
+    \ifdim\wd\@tempboxa>\hsize
+      #1{#2 -- }#3%
+    \else
+      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \endgraf\vskip\baselineskip}%
+  \hss}}}
+ }% End of the extension of the package longtable	
+
+}% End of the \AtBeginDocument{
+
 \newcommand\contentsn@me{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
 \newcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
 \newcommand\listtablen@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
@@ -78,24 +103,42 @@
 \newcommand\figuren@me{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
 \newcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
 \newcommand\chaptern@me{{\cyr\CYRG\CYRL\CYRA\CYRV\CYRA}}%
+\newcommand\eqremn@me{{\cyr\cyrg\cyrd\cyre}}%
 \newcommand\appendixn@me{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
 \newcommand\commentn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
 \newcommand\commentsn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
+
+
+\DeclareOption{rus}{%
+\renewcommand\contentsn@me{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
+\renewcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
+\renewcommand\listtablen@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
+\renewcommand\bibn@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh{}  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}}%
+\renewcommand\mybibn@me{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya}}%
+\renewcommand\indexn@me{{\cyr\CYRP\CYRR\CYRE\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY\CYRISHRT{} \CYRU\CYRK\CYRA\CYRZ\CYRA\CYRT\CYRE\CYRL\CYRSFTSN}}%
+\renewcommand\figuren@me{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
+\renewcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
+\renewcommand\chaptern@me{{\cyr\CYRG\CYRL\CYRA\CYRV\CYRA}}%
+\renewcommand\eqremn@me{{\cyr\cyrg\cyrd\cyre}}%
+\renewcommand\appendixn@me{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
+\renewcommand\commentn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
+\renewcommand\commentsn@me{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
 }%End of the \DeclareOption{rus}
 
 \DeclareOption{bel}{%
-\newcommand\contentsn@me{{\cyr\CYRZ\cyrm\cyre\cyrs\cyrt}}%
-\newcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrr\cyrery\cyrs\cyru\cyrn\cyrk\cyra\cyrushrt}}%
-\newcommand\listtablen@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrt\cyra\cyrb\cyrl\cyrii\cyrc}}%
-\newcommand\bibn@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrv\cyrery\cyrk\cyra\cyrr\cyrery\cyrs\cyrt\cyra\cyrn\cyrery\cyrh{}  \cyrk\cyrr\cyrery\cyrn\cyrii\cyrc}}%
-\newcommand\mybibn@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrp\cyru\cyrb\cyrl\cyrii\cyrk\cyra\cyrc\cyrery\cyrishrt{} \cyrs\cyrp\cyra\cyrsh\cyru\cyrk\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk\cyra}}%
-\newcommand\indexn@me{{\cyr\CYRP\CYRR\CYRA\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY{} \CYRP\CYRA\CYRK\CYRA\CYRZ\CYRA\CYRL\CYRSFTSN\CYRN\CYRI\CYRK}}%
-\newcommand\figuren@me{{\cyr\CYRR\cyrery\cyrs\cyru\cyrn\cyra\cyrk}}%
-\newcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyra}}%
-\newcommand\chaptern@me{{\cyr\CYRR\CYRA\CYRZ\CYRD\CYRZ\CYRE\CYRL}}%
-\newcommand\appendixn@me{{\cyr\CYRD\CYRA\CYRD\CYRA\CYRT\CYRA\CYRK}}%
-\newcommand\commentn@me{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyra}}%
-\newcommand\commentsn@me{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyrii}}%
+\renewcommand\contentsn@me{{\cyr\CYRZ\cyrm\cyre\cyrs\cyrt}}%
+\renewcommand\listfiguren@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrr\cyrery\cyrs\cyru\cyrn\cyrk\cyra\cyrushrt}}%
+\renewcommand\listtablen@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrt\cyra\cyrb\cyrl\cyrii\cyrc}}%
+\renewcommand\bibn@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrv\cyrery\cyrk\cyra\cyrr\cyrery\cyrs\cyrt\cyra\cyrn\cyrery\cyrh{}  \cyrk\cyrr\cyrery\cyrn\cyrii\cyrc}}%
+\renewcommand\mybibn@me{{\cyr\CYRS\cyrp\cyrii\cyrs{} \cyrp\cyru\cyrb\cyrl\cyrii\cyrk\cyra\cyrc\cyrery\cyrishrt{} \cyrs\cyrp\cyra\cyrsh\cyru\cyrk\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk\cyra}}%
+\renewcommand\indexn@me{{\cyr\CYRP\CYRR\CYRA\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY{} \CYRP\CYRA\CYRK\CYRA\CYRZ\CYRA\CYRL\CYRSFTSN\CYRN\CYRI\CYRK}}%
+\renewcommand\figuren@me{{\cyr\CYRR\cyrery\cyrs\cyru\cyrn\cyra\cyrk}}%
+\renewcommand\tablen@me{{\cyr\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyra}}%
+\renewcommand\chaptern@me{{\cyr\CYRR\CYRA\CYRZ\CYRD\CYRZ\CYRE\CYRL}}%
+\renewcommand\eqremn@me{{\cyr\cyrd\cyrz\cyre}}%
+\renewcommand\appendixn@me{{\cyr\CYRD\CYRA\CYRD\CYRA\CYRT\CYRA\CYRK}}%
+\renewcommand\commentn@me{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyra}}%
+\renewcommand\commentsn@me{{\cyr\CYRZ\cyra\cyrushrt\cyrv\cyra\cyrg\cyrii}}%
 }%End of the \DeclareOption{bel}
 
 \ExecuteOptions{a4paper,final}
@@ -309,9 +352,9 @@
                          \refstepcounter{chapter}%
                          \typeout{\@chapapp\space\thechapter.}%
                          \addcontentsline{toc}{chapter}%
-                               {\normalfont
-                   \MakeUppercase{%
-                   \@chapapp}\space\thechapter. #1}%
+%				{\protect\numberline{\thechapter}#1}%
+                                {\normalfont
+                    \@chapapp\space\thechapter. #1}%
                     \else
                       \addcontentsline{toc}{chapter}%
                        {\normalfont
@@ -434,8 +477,8 @@
 \newlength\Gost@EqRemLen
 \newlength\Gost@@EqRemLen
 \newenvironment{eqrem}{%
- \begin{tabular}{p{\Gost@@EqRemLen}p{\Gost@EqRemLen}}
-{\cyr\cyrg\cyrd\cyre}&%
+ \begin{tabular}{@{}p{\Gost@@EqRemLen}p{\Gost@EqRemLen}}
+{\eqremn@me}&%
 }{%
  \end{tabular}
 }
@@ -444,7 +487,7 @@
  \makeatletter%
   \setlength\Gost@EqRemLen{\textwidth}%
   \addtolength\Gost@EqRemLen{-10mm}%
-  \settowidth\Gost@@EqRemLen{{\cyr\cyrg\cyrd\cyre}}%
+  \settowidth\Gost@@EqRemLen{{\eqremn@me}}%
   \addtolength\Gost@EqRemLen{-\Gost@@EqRemLen}%
  \makeatother%
 }
@@ -579,7 +622,8 @@
 \newenvironment{mybibliography}[1]
      {\section*{\mybibn@me}%
      \addcontentsline{toc}{section}{\mybibn@me}%
-     \list{\@biblabel{\@arabic\c@enumiv --A}}%
+     \list{
+	\@biblabel{\@arabic\c@enumiv --A}}%
            {\settowidth\labelwidth{\@biblabel{#1 --A.}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
@@ -587,7 +631,7 @@
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
             \renewcommand\theenumiv{\@arabic\c@enumiv}
-		\renewcommand\bibitem[1]{\item\if@filesw \immediate\write\@auxout
+		\renewcommand\bibitem[1]{\item\hyp@def{##1}\if@filesw \immediate\write\@auxout
 	       {\string\bibcite{##1}{\@arabic\c@enumiv --A}}\fi\ignorespaces}%
 	    }%end of the second argument of the \list 
       \sloppy

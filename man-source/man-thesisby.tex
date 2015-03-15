@@ -1,4 +1,4 @@
-\documentclass[rus]{thesisby}
+\documentclass{thesisby}
 \usepackage[cp1251]{inputenc}
 \usepackage[russian]{babel}
 
@@ -8,13 +8,20 @@
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{longtable, array}
 \usepackage{graphicx, epsfig}
+\usepackage[unicode,colorlinks,pagebackref]{hyperref}
+%\usepackage{refcheck}% checks lost and useless labels, shows `keys' of \label in the margins
 
 \usepackage{textcomp}% For Celsium sign only
 
 \graphicspath{{fig/}}
 
 \begin{document}
-\include{longtabledef}% For long tables. Required package `longtable`.
+\hypersetup{
+pdftitle = {Руководство по оформлению диссертации с использованием \TeX овского стиля {\itshape thesisby}},
+pdfauthor = {Петров Вадим Александрович},
+pdfsubject = {Диссертация},
+pdfkeywords = {ТеХ, диссертация}
+}% End of hypersetup
 
 \include{titlepage}
 \tableofcontents
