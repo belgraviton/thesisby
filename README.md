@@ -5,18 +5,18 @@
 
 Версия 1.0 (текущая):
 
-* [https://github.com/belgraviton/thesisby/releases/download/v1.0/thesisby.cls](ТеХовский файл класса)
-* [https://github.com/belgraviton/thesisby/releases/download/v1.0/man-thesisby.pdf](Руководство пользователя)
-* [https://github.com/belgraviton/thesisby/archive/v1.0.zip](Шаблон диссертации) (главный файл man-thesisby.tex)
-* [https://github.com/belgraviton/thesisby/releases/download/v1.0/AbstractPhD.tex](Шаблон для автореферта диссертации)
-* [https://github.com/belgraviton/thesisby/releases/download/v1.0/thesis_template_complex.zip](Сцепленные шаблоны диссертации, автореферата и презентации)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.zip) (главный файл man-thesisby.tex)
+* [Шаблон для автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0/AbstractPhD.tex)
+* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0/thesis_template_complex.zip)
  
 Основные изменения после версии 0.9:
 
 * Проведена более чем трехлетняя апробация класса.
 * Убрана точка в оглавлении после номера главы.
 
-Для оформления библиографии к диссертации в программе BibTeX рекомендуется использовать стили [https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71u2003.bst](gost71u2003.bst) и [https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71s2003.bst](gost71s2003.bst).
+Для оформления библиографии к диссертации в программе BibTeX рекомендуется использовать стили [gost71u2003.bst](https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71u2003.bst) и [gost71s2003.bst](https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71s2003.bst).
 
 Имеется [визуальное руководство](http://piohelp.ru/myfiles/miktex2/petrov.html) по работе с классом, используя TexMaker и MikTeX, опубликованное В.И. Карнышевым.
 
@@ -24,8 +24,8 @@
 
 Версия 0.9:
 
-* [https://github.com/belgraviton/thesisby/releases/download/v0.9/thesisby.cls](ТеХовский файл класса)
-* [https://github.com/belgraviton/thesisby/archive/v0.9.zip](Полный архив) (класс, руководство, шаблоны диссертации и отчета)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v0.9/thesisby.cls)
+* [Полный архив](https://github.com/belgraviton/thesisby/archive/v0.9.zip) (класс, руководство, шаблоны диссертации и отчета)
  
 Основные изменения после начальной версии 0.8:
 
@@ -37,8 +37,8 @@
  
 Версия 0.82:
 
-* [https://github.com/belgraviton/thesisby/releases/download/v0.8.2/thesisby.cls](ТеХовский файл класса)
-* [https://github.com/belgraviton/thesisby/archive/v0.8.2.zip](Архив) (класс, руководство и шаблон диссертации)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v0.8.2/thesisby.cls)
+* [Архив](https://github.com/belgraviton/thesisby/archive/v0.8.2.zip) (класс, руководство и шаблон диссертации)
 
 Основные изменения после начальной версии 0.8:
 
@@ -49,7 +49,7 @@
 
 Версия 0.8:
 
-* [https://github.com/belgraviton/thesisby/releases/download/v0.8/thesisby.cls](ТеХовский файл класса)
-* [https://github.com/belgraviton/thesisby/archive/v0.8.zip](Архив) (класс, руководство и шаблон диссертации)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v0.8/thesisby.cls)
+* [Архив](https://github.com/belgraviton/thesisby/archive/v0.8.zip) (класс, руководство и шаблон диссертации)
 
 
