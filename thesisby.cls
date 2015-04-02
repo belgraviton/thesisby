@@ -3,7 +3,7 @@
 %% modifided from the class `dissert.cls'.
 %% Need package `geometry'.
 %%
-%% Copyright 2008-2012 V. A. Piatrou <thesisby@tut.by>
+%% Copyright 2008-2015 V. A. Piatrou <thesisby@tut.by>
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -62,7 +62,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{thesisby}
-              [2012/07/15 v1.0
+              [2015/04/02 v1.0.2
 LaTeX document class for thesis]
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
@@ -547,7 +547,7 @@ LaTeX document class for thesis]
   \setcounter{section}{0}%
   \renewcommand{\@chapternameposition}{\@appendixnameposition}
   \gdef\@chapapp{\appendixname}%
-  \gdef\thechapter{\@Asbuk\c@chapter}
+  \renewcommand{\thechapter}{\Asbuk{chapter}}
 }%End of the appendix
 
 %Figures and tables
