@@ -1,24 +1,33 @@
 # thesisby
 Класс TeX для оформления диссертации по требованиям ВАКа Беларуси (инструкция от 24 декабря 1997 г. № 178 с изменениями и дополнениями № 7/603 от 09.03.2006 г. и № 7/743 от 03.09.2007 г.).
 
+Электронная почта: thesisby@tut.by
+
 Старая версия сайта: [http://thesisby.at.tut.by](http://thesisby.at.tut.by).
 
-Версия 1.0 (текущая):
+## Версия 1.0.2 (текущая):
 
-* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0/thesisby.cls)
-* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0/man-thesisby.pdf)
-* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.zip) (главный файл man-thesisby.tex)
-* [Шаблон для автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0/AbstractPhD.tex)
-* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0/thesis_template_complex.zip)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.2.zip) (главный файл man-thesisby.tex)
+* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/AbstractPhD.tex)
+* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/thesis_template_complex.zip)
  
 Основные изменения после версии 0.9:
 
 * Проведена более чем трехлетняя апробация класса.
 * Убрана точка в оглавлении после номера главы.
-
-Для оформления библиографии к диссертации в программе BibTeX рекомендуется использовать стили [gost71u2003.bst](https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71u2003.bst) и [gost71s2003.bst](https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71s2003.bst).
-
+* Исправлена ошибка совместимости с TeXLive 2013
+ 
 Имеется [визуальное руководство](http://piohelp.ru/myfiles/miktex2/petrov.html) по работе с классом, используя TexMaker и MikTeX, опубликованное В.И. Карнышевым.
+
+## BibTeX стили для диссертации
+
+Cтилевые файлы BibTeXa для офрмления списка литературы без и с сортировкой (частично реализован ГОСТ 7.1 - 2003 требуемый для диссертации и отчетов):
+* [gost71u2003.bst](https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71u2003.bst) - библиография по ГОСТу 7.32-2001 без сортировки (версия 0.6, автор: Вадим Петров, создано на основе gost780u.bst);
+* [gost71s2003.bst](https://github.com/belgraviton/thesisby/releases/download/v1.0/gost71s2003.bst) - библиография по ГОСТу 7.32-2001 с сортировкой (версия 0.6, автор: Денис Казакевич, создано на основе gost780s.bst и gost71u2003.bst).
+
+Внимание: в записи библиографической базы данных, использующей русский язык, необходимо добавить опцию language = {russian}, а для англоязычных изданий language = {english} 
 
 ## Архив
 
