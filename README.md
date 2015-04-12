@@ -11,7 +11,7 @@
 * [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/man-thesisby.pdf)
 * [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.2.zip) (главный файл man-thesisby.tex)
 * [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/AbstractPhD.tex)
-* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/thesis_template_complex.zip)
+* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/thesis_template_complex_v1.zip)
  
 Основные изменения после версии 0.9:
 
