@@ -5,19 +5,19 @@
 
 Старая версия сайта: [http://thesisby.at.tut.by](http://thesisby.at.tut.by).
 
-## Версия 1.0.2 (текущая):
+## Версия 1.0.3 (текущая):
 
-* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/thesisby.cls)
-* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/man-thesisby.pdf)
-* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.2.zip) (главный файл man-thesisby.tex)
-* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/AbstractPhD.tex)
-* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.2/thesis_template_complex_v1.zip)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.3.zip) (главный файл man-thesisby.tex)
+* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/AbstractPhD.tex)
+* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesis_template_complex_v1.zip)
  
 Основные изменения после версии 0.9:
 
 * Проведена более чем трехлетняя апробация класса.
 * Убрана точка в оглавлении после номера главы.
-* Исправлена ошибка совместимости с TeXLive 2013
+* Исправлены ошибки совместимости с TeXLive 2013
  
 Имеется [визуальное руководство](http://piohelp.ru/myfiles/miktex2/petrov.html) по работе с классом, используя TexMaker и MikTeX, опубликованное В.И. Карнышевым.
 
