@@ -5,7 +5,7 @@
 
 Старая версия сайта: [http://thesisby.at.tut.by](http://thesisby.at.tut.by).
 
-## Версия проекта 1.0.3 (текущая, версия класса 1.0.2):
+## Версия проекта 1.0.3 (версия класса 1.0.2):
 
 * [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesisby.cls)
 * [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/man-thesisby.pdf)
