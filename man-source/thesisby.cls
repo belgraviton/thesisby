@@ -381,6 +381,16 @@ LaTeX document class for thesis]
     \def\@oddhead{\hfil\thepage}%
     }
 
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+%	\addtolength{\headheight}{\baselineskip}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[C]{\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+
 %Sections
 \newcommand*\chaptermark[1]{}
 \setcounter{secnumdepth}{3}
@@ -597,9 +607,9 @@ LaTeX document class for thesis]
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
   \ifx\@captype\captable
-  \normalfont #1 -- #2 \par
+  \normalfont #1. -- #2 \par
   \else
-  \small \bfseries \centering #1 -- \normalsize #2
+  \small \bfseries \centering #1. -- #2
   \fi
   \vskip\belowcaptionskip}
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
