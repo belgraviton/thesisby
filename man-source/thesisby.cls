@@ -3,7 +3,7 @@
 %% modifided from the class `dissert.cls'.
 %% Need package `geometry'.
 %%
-%% Copyright 2008-2015 V. A. Piatrou <thesisby@tut.by>
+%% Copyright 2008-2016
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -15,7 +15,7 @@
 %%
 %% This work has the LPPL maintenance status `maintained'.
 %%
-%% The Current Maintainer of this work is V. A. Piatrou
+%% The Current Maintainer of this work is V. A. Piatrou <thesisby@tut.by>
 %%
 %% Web site: thesisby.at.tut.by
 %% Class: thesisby
@@ -389,7 +389,7 @@ LaTeX document class for thesis]
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 }
-
+\headsep = 3mm
 
 %Sections
 \newcommand*\chaptermark[1]{}
@@ -537,10 +537,10 @@ LaTeX document class for thesis]
 \newlength\Gost@EqRemLen
 \newlength\Gost@@EqRemLen
 \newenvironment{eqrem}{%
- \begin{tabular}{@{}p{\Gost@@EqRemLen}@{ }p{\Gost@EqRemLen}}
-{\eqremname}&%
+\begin{longtable}{@{}p{\Gost@@EqRemLen}@{ }p{\Gost@EqRemLen}}
+{\eqremname \addtocounter{table}{-1}}&%
 }{%
- \end{tabular}
+ \end{longtable}
 }
 
 \AtBeginDocument{%
