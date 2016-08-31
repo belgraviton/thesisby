@@ -62,7 +62,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{thesisby}
-              [2015/04/02 v1.0.2
+              [2016/09/01 v1.1
 LaTeX document class for thesis]
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
