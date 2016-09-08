@@ -1,18 +1,14 @@
 # thesisby
-Класс TeX для оформления диссертации по требованиям ВАКа Беларуси (инструкция от 24 декабря 1997 г. № 178 с изменениями и дополнениями № 7/603 от 09.03.2006 г. и № 7/743 от 03.09.2007 г.).
+Класс TeX для оформления диссертации по требованиям ВАКа Беларуси (инструкция от 24 декабря 1997 г. № 178 с изменениями и дополнениями № 7/603 от 09.03.2006 г., № 7/743 от 03.09.2007 г. и № 3 от 28.02.2014 г.).
 
 Электронная почта: thesisby@tut.by
 
-Старая версия сайта: [http://thesisby.at.tut.by](http://thesisby.at.tut.by).
+## Версия 1.1 (1 сентября 2016 г.):
 
-## Версия проекта 1.0.3 (версия класса 1.0.2):
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.1/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.1/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.1.zip) (главный файл man-thesisby.tex)
 
-* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesisby.cls)
-* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/man-thesisby.pdf)
-* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.3.zip) (главный файл man-thesisby.tex)
-* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/AbstractPhD.tex)
-* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesis_template_complex_v1.0.3.zip)
- 
 Основные изменения после версии 0.9:
 
 * Проведена более чем трехлетняя апробация класса.
@@ -37,6 +33,20 @@ Cтилевые файлы BibTeXa для офрмления списка лит
 * [межгосударственный стандарт для оформления библиографии ГОСТ 7.1—2003 G7-32](https://ru.wikisource.org/wiki/%D0%93%D0%9E%D0%A1%D0%A2_7.1%E2%80%942003).
 
 ## Архив
+
+Версия проекта 1.0.3 (версия класса 1.0.2):
+
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.3.zip) (главный файл man-thesisby.tex)
+* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/AbstractPhD.tex)
+* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesis_template_complex_v1.0.3.zip)
+ 
+Основные изменения после версии 0.9:
+
+* Проведена более чем трехлетняя апробация класса.
+* Убрана точка в оглавлении после номера главы.
+* Исправлены ошибки совместимости с TeXLive 2013
 
 Версия 0.9:
 
