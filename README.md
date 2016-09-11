@@ -7,9 +7,9 @@
 
 ## Версия 1.1 (1 сентября 2016 г.):
 
-* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.1/thesisby.cls)
-* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.1/man-thesisby.pdf)
-* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.1.zip) (главный файл man-thesisby.tex)
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.1.1/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.1.1/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.1.1.zip) (главный файл man-thesisby.tex)
 
 Основные изменения после версии 1.0:
 
