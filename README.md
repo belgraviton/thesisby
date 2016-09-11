@@ -1,24 +1,21 @@
 # thesisby
-Класс TeX для оформления диссертации по требованиям ВАКа Беларуси (инструкция от 24 декабря 1997 г. № 178 с изменениями и дополнениями № 7/603 от 09.03.2006 г. и № 7/743 от 03.09.2007 г.).
+Класс TeX для оформления диссертации по требованиям ВАКа Беларуси (инструкция от 24 декабря 1997 г. № 178 с изменениями и дополнениями № 7/603 от 09.03.2006 г., № 7/743 от 03.09.2007 г. и № 3 от 28.02.2014 г.).
 
-Электронная почта: thesisby@tut.by
+Электронная почта основного разработчика: thesisby@tut.by
 
-Старая версия сайта: [http://thesisby.at.tut.by](http://thesisby.at.tut.by).
+[Инструкция для оформления диссертации](http://www.vak.org.by/index.php?go=News&in=view&id=553).
 
-## Версия проекта 1.0.3 (версия класса 1.0.2):
+## Версия 1.1 (1 сентября 2016 г.):
 
-* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesisby.cls)
-* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/man-thesisby.pdf)
-* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.3.zip) (главный файл man-thesisby.tex)
-* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/AbstractPhD.tex)
-* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesis_template_complex_v1.0.3.zip)
- 
-Основные изменения после версии 0.9:
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.1/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.1/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.1.zip) (главный файл man-thesisby.tex)
 
-* Проведена более чем трехлетняя апробация класса.
-* Убрана точка в оглавлении после номера главы.
-* Исправлены ошибки совместимости с TeXLive 2013
- 
+Основные изменения после версии 1.0:
+
+* Стиль приведен в соответствие с требованиями правил 2014 г. (нумерация страниц сверху и точка после номера иллюстраций, [Nick Petrovsky](https://github.com/nick-petrovsky)).
+* Расширение возможностей окружения \eqrem (возможность переноса части окружения на следующую страницу, Vladzimir Leszkiewicz).
+
 Имеется [визуальное руководство](http://piohelp.ru/myfiles/miktex2/petrov.html) по работе с классом, используя TexMaker и MikTeX, опубликованное В.И. Карнышевым.
 
 Форум: [Сообщество поддержки TeXовского класса thesisby](http://thesisby.livejournal.com/).
@@ -34,9 +31,24 @@ Cтилевые файлы BibTeXa для офрмления списка лит
 ## Ссылки
 * [disser - пакет предназначенный для верстки дипломов и диссертаций](http://www.ctan.org/tex-archive/macros/latex/contrib/disser/);
 * [vakthesis - набір класів і пакетів LaTeX призначений для оформлення дисертації та автореферату за рекомендаціями ВАК України.](http://www.imath.kiev.ua/~baranovskyi/tex/vakthesis/);
-* [межгосударственный стандарт для оформления библиографии ГОСТ 7.1—2003 G7-32](https://ru.wikisource.org/wiki/%D0%93%D0%9E%D0%A1%D0%A2_7.1%E2%80%942003).
+* [межгосударственный стандарт для оформления библиографии ГОСТ 7.1—2003 G7-32](https://ru.wikisource.org/wiki/%D0%93%D0%9E%D0%A1%D0%A2_7.1%E2%80%942003);
+* [полезные приемы для подготовки диссертации в 2016 г](https://github.com/belgraviton/thesisby/pull/1).
 
 ## Архив
+
+Версия проекта 1.0.3 (версия класса 1.0.2):
+
+* [ТеХовский файл класса](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesisby.cls)
+* [Руководство пользователя](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/man-thesisby.pdf)
+* [Шаблон диссертации](https://github.com/belgraviton/thesisby/archive/v1.0.3.zip) (главный файл man-thesisby.tex)
+* [Шаблон автореферта диссертации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/AbstractPhD.tex)
+* [Сцепленные шаблоны диссертации, автореферата и презентации](https://github.com/belgraviton/thesisby/releases/download/v1.0.3/thesis_template_complex_v1.0.3.zip)
+ 
+Основные изменения после версии 0.9:
+
+* Проведена более чем трехлетняя апробация класса.
+* Убрана точка в оглавлении после номера главы.
+* Исправлены ошибки совместимости с TeXLive 2013
 
 Версия 0.9:
 
