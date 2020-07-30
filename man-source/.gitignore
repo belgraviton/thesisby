@@ -1,0 +1,28 @@
+# Latex
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf
+*.synctex.gz
+*.tex.bak
+
+*.out
+*.brf
+*.toc
+*.gz
+# Latexmk
+*.fls
+*.fdb_latexmk
+
+# Editors backup
+*.swp
+*.*~
+*.bak
+
+*.dvi
+
+*.nav
+*.snm
+
+*.gz(busy)
