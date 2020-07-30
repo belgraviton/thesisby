@@ -1,19 +1,61 @@
+% !TeX encoding = UTF-8
 \documentclass{thesisby}
-\usepackage[cp1251]{inputenc}
-\usepackage[russian]{babel}
+\usepackage{etoolbox,ifxetex,ifluatex}
 
-% Управление колонтитулами
+%%% РџСЂРѕРІРµСЂРєР° РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ TeX-РґРІРёР¶РєР° %%%
+\usepackage[unicode,colorlinks=false]{hyperref}
+
+\ifboolexpr{bool{xetex} or bool{luatex}}{%
+	\PassOptionsToPackage{no-math}{fontspec}    % https://tex.stackexchange.com/a/26295/104425
+	\usepackage{polyglossia}%[2014/05/21]        % РџРѕРґРґРµСЂР¶РєР° РјРЅРѕРіРѕСЏР·С‹С‡РЅРѕСЃС‚Рё
+	% (fontspec РїРѕРґРіСЂСѓР¶Р°РµС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё)
+	% fonts and languages
+	%	\setmainfont{CMU Serif}
+	
+	\defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+	
+	\setmainlanguage[babelshorthands = true]{russian}
+	\setotherlanguage{english}
+	
+	%	\setmainfont{Times New Roman}
+	%	\setromanfont{Times New Roman} 
+	%	\setsansfont{Arial} 
+	%	\setmonofont{Courier New}
+	
+	\setmainfont{Times New Roman}
+	\setmonofont{Courier New}
+	\setsansfont{Arial}
+	
+	\newfontfamily\cyrillicfont[Script=Cyrillic]{Times New Roman}
+	\newfontfamily\cyrillicfontsf[Script=Cyrillic]{Arial}
+	\newfontfamily\cyrillicfonttt[Script=Cyrillic]{Courier New}
+	
+	\newfontfamily\englishfont{Times New Roman}
+	\newfontfamily\englishfontsf{Arial}
+	\newfontfamily\englishfonttt{Courier New}
+	
+	\renewcommand{\UrlFont}{\small\rmfamily\tt}
+	
+}{%
+	\usepackage[T1,T2A]{fontenc}
+	\usepackage[utf8]{inputenc}
+	\usepackage[english, russian]{babel}
+	\IfFileExists{pscyr.sty}{\usepackage{pscyr}}{}  % РџРѕРґРєР»СЋС‡РµРЅРёРµ pscyr
+}
+
+
+% РЈРїСЂР°РІР»РµРЅРёРµ РєРѕР»РѕРЅС‚РёС‚СѓР»Р°РјРё
 % \headsep = 3mm
 % \fancyhead{}
 % \fancyfoot[C]{\thepage}
 
-%для борьбы с переполнениями за счет разреженных слов в абзаце
+%РґР»СЏ Р±РѕСЂСЊР±С‹ СЃ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏРјРё Р·Р° СЃС‡РµС‚ СЂР°Р·СЂРµР¶РµРЅРЅС‹С… СЃР»РѕРІ РІ Р°Р±Р·Р°С†Рµ
 \emergencystretch=25pt
 
 \usepackage{amsmath,amssymb,amsfonts} 
 \usepackage{longtable,array}
 \usepackage{graphicx,epsfig}
-\usepackage[unicode,colorlinks,pagebackref]{hyperref}
+%\usepackage[unicode,colorlinks,pagebackref]{hyperref}
 %\usepackage{refcheck}% checks lost and useless labels, shows `keys' of \label in the margins
 
 \usepackage{textcomp}% For Celsium sign only
@@ -23,10 +65,10 @@
 
 
 \hypersetup{
-pdftitle = {Руководство по оформлению диссертации с использованием \TeX овского стиля {\itshape thesisby}},
-pdfauthor = {Петров Вадим Александрович},
-pdfsubject = {Диссертация},
-pdfkeywords = {ТеХ, диссертация}
+pdftitle = {Р СѓРєРѕРІРѕРґСЃС‚РІРѕ РїРѕ РѕС„РѕСЂРјР»РµРЅРёСЋ РґРёСЃСЃРµСЂС‚Р°С†РёРё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј \TeX РѕРІСЃРєРѕРіРѕ СЃС‚РёР»СЏ {\itshape thesisby}},
+pdfauthor = {РџРµС‚СЂРѕРІ Р’Р°РґРёРј РђР»РµРєСЃР°РЅРґСЂРѕРІРёС‡},
+pdfsubject = {Р”РёСЃСЃРµСЂС‚Р°С†РёСЏ},
+pdfkeywords = {РўРµРҐ, РґРёСЃСЃРµСЂС‚Р°С†РёСЏ}
 }% End of hypersetup
 
 \include{titlepage}
