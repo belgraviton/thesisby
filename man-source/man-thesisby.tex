@@ -1,27 +1,32 @@
+% !TeX root = man-thesisby.tex
+% !TeX TS-program = xelatex
+%% Для использования другого latex движка раскоментируйте следующую строку
+%% (При смене движка необходимо удалить вспомогательные файлы *.aux *.brf *.log *.out *.synctex.gz *.toc)
+%% !TeX TS-program = pdflatex
 % !TeX encoding = UTF-8
+
+\RequirePackage[l2tabu,orthodox]{nag} 
+
 \documentclass{thesisby}
 \usepackage{etoolbox,ifxetex,ifluatex}
+\usepackage[unicode,colorlinks=false,pagebackref]{hyperref}
 
 %%% Проверка используемого TeX-движка %%%
-\usepackage[unicode,colorlinks=false]{hyperref}
-
 \ifboolexpr{bool{xetex} or bool{luatex}}{%
+	\usepackage{fontspec}
 	\PassOptionsToPackage{no-math}{fontspec}    % https://tex.stackexchange.com/a/26295/104425
 	\usepackage{polyglossia}%[2014/05/21]        % Поддержка многоязычности
-	% (fontspec подгружается автоматически)
+
 	% fonts and languages
-	%	\setmainfont{CMU Serif}
+	%	\setmainfont{CMU Serif}	
+	%\usepackage[default]{droidserif}
+	%\usepackage[defaultsans]{droidsans}
 	
 	\defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
 	
 	\setmainlanguage[babelshorthands = true]{russian}
 	\setotherlanguage{english}
-	
-	%	\setmainfont{Times New Roman}
-	%	\setromanfont{Times New Roman} 
-	%	\setsansfont{Arial} 
-	%	\setmonofont{Courier New}
-	
+		
 	\setmainfont{Times New Roman}
 	\setmonofont{Courier New}
 	\setsansfont{Arial}
@@ -35,7 +40,6 @@
 	\newfontfamily\englishfonttt{Courier New}
 	
 	\renewcommand{\UrlFont}{\small\rmfamily\tt}
-	
 }{%
 	\usepackage[T1,T2A]{fontenc}
 	\usepackage[utf8]{inputenc}
@@ -52,17 +56,22 @@
 %для борьбы с переполнениями за счет разреженных слов в абзаце
 \emergencystretch=25pt
 
-\usepackage{amsmath,amssymb,amsfonts} 
-\usepackage{longtable,array}
-\usepackage{graphicx,epsfig}
-%\usepackage[unicode,colorlinks,pagebackref]{hyperref}
+\usepackage{amsmath, amssymb, amsfonts} 
+\usepackage{longtable, array}
+\usepackage{graphicx, epsfig}
+
+\usepackage{algorithm}			% Для вставки псевдокода
+\usepackage{algpseudocode}		% Для вставки псевдокода
+
+% Русская традиция начертания греческих букв
+\usepackage{upgreek} % прямые греческие ради русской традиции (в формулах записывается \alpha как \upalpha и т.д.)
+
 %\usepackage{refcheck}% checks lost and useless labels, shows `keys' of \label in the margins
 
-\usepackage{textcomp}% For Celsium sign only
+\usepackage{siunitx}% For Celsium sign only
 
 % \graphicspath{{fig/}}
 \begin{document}
-
 
 \hypersetup{
 pdftitle = {Руководство по оформлению диссертации с использованием \TeX овского стиля {\itshape thesisby}},
