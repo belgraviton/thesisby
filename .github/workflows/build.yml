@@ -16,3 +16,8 @@ jobs:
         run: |
           cd man-source
           latexmk -pdf ./man-thesisby.tex
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Save result pdf
+          path: man-source/man-thesisby.pdf
+    
