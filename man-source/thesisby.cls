@@ -776,7 +776,6 @@ LaTeX document class for thesis]
 
 \renewcommand{\@biblabel}[1]{#1.}
 
-\usepackage{xecyr}
 \endinput
 %%
 %% End of file `thesisby.cls'.
