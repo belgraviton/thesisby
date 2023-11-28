@@ -3,10 +3,10 @@
 %% modified from `gost780s.bst' (author: Maksym Polyakov)
 %% and `gost71s2003.bst'(author: Vadzim Piatrou).
 %%
-%% 
+%%
 %% Copyright 2011-2012 Denis Kazakevich.
 %% Version 0.6
-%% 
+%%
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.2
 %% of this license or (at your option) any later version.
@@ -14,11 +14,11 @@
 %%   http://www.latex-project.org/lppl.txt
 %% and version 1.2 or later is part of all distributions of LaTeX
 %% version 1999/12/01 or later.
-%% 
+%%
 %% Please, send bug reports via e-mail:
-%%   thesisby@tut.by 
-%% 
-%% 
+%%   thesisby@tut.by
+%%
+%%
 %%
 %% This bibliography style attempts
 %% to format bibliography according to
@@ -282,12 +282,12 @@ FUNCTION {space.word}
 
 FUNCTION {bbl.edby}    %  { "\bbledby{}" }
 {  curlanguage "english" =
-    {"Ed. by "}
+    {"ed.: "}
     { curlanguage "ukrainian" =
         {"{\cyr\CYRP\cyrii\cyrd\ \cyrr\cyre\cyrd.\ }"}
         { curlanguage "russian" =
-           {"{\cyr\CYRP\cyro\cyrd\ \cyrr\cyre\cyrd.\ }"}
-           {"language is not defined: " language  "edited by" * * warning$ "edited by"}
+           {"  "}
+           {"language is not defined: " language  "edited by" * * warning$ "ed.: "}
          if$}
       if$}
   if$
@@ -299,7 +299,7 @@ FUNCTION {bbl.cmplr}
     { curlanguage "ukrainian" =
         {"{\cyr\CYRU\cyrk\cyrl.\ }"}
         { curlanguage "russian" =
-           {"{\cyr\CYRS\cyro\cyrs\cyrt.\ }"}
+           {"авт.-сост.: "}
            {"language is not defined: " language  "compiler" * * warning$ "compiler"}
          if$}
       if$}
@@ -308,11 +308,11 @@ FUNCTION {bbl.cmplr}
 
 FUNCTION {bbl.edition} %  { "\bbledition{}" }
 {  curlanguage "english" =
-    {"edition"}
+    {"ed."}
     { curlanguage "ukrainian" =
         {"{\cyr\cyrv\cyri\cyrd.}"}
         { curlanguage "russian" =
-           {"{\cyr\cyri\cyrz\cyrd.}"}
+           {"изд."}
            {"language is not defined: " language  "edition" * * warning$ "edition"}
          if$}
       if$}
@@ -380,7 +380,7 @@ FUNCTION {bbl.of}      %  { "\bblof{}" }
 
 FUNCTION {bbl.etal}      %  { "\bblof{}" }
 {  curlanguage "english" =
-    {"[et~al]"}
+    {"[et~al.]"}
     { curlanguage "ukrainian" =
         {"[{\cyr\cyrt\cyra~\cyrii\cyrn.}]"}
         { curlanguage "russian" =
@@ -453,10 +453,10 @@ FUNCTION {bbl.iin}  %     { "\bblIn{}" }
 
 FUNCTION {bbl.pages}    % { "\bblpp." }
 {  curlanguage "english" =
-    {"pp."}
+    {"p."}
     { curlanguage "ukrainian" = curlanguage "russian" = or
            {"{\cyr\cyrs.}"}
-           {"language is not defined: " language  "pp." * * warning$ "pp."}
+           {"language is not defined: " language  "pp." * * warning$ "p."}
       if$}
   if$
 }
@@ -501,7 +501,7 @@ INTEGERS { nameptr namesleft numnames }
 
 FUNCTION {format.names}
 {
-  #1 "{vv~}{ll}{~jj},{~f.}" format.name$
+  #1 "{vv~}{ll}{~jj},{~ff}" format.name$
 }
 
 
@@ -512,12 +512,12 @@ FUNCTION {format.names.rev}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{f.~}{vv~}{ll}{, jj}"
+      "{ff~}{vv~}{ll}{, jj}"
       format.name$ 't :=
       nameptr #1 >
         {
-          nameptr #4 =
-          numnames #4 > and
+          nameptr #2 =
+          numnames #3 > and
             { "others" 't :=
               #1 'namesleft := }
             'skip$
@@ -1086,9 +1086,6 @@ FUNCTION {inproceedings}
   new.slash
   editor.organization.after
   new.block
-  format.bvolume output
-  format.number.series output
-  new.block
   address empty$
     { publisher output
       format.date "year" output.check
@@ -1099,6 +1096,10 @@ FUNCTION {inproceedings}
       format.date "year" output.check
     }
   if$
+  new.block
+  format.bvolume output
+  format.number.series output
+
   new.block
   format.pages.page output
   new.block
@@ -1193,6 +1194,7 @@ FUNCTION {phdthesis}
   new.column
   bbl.phdthesis format.thesis.type output.nonnull
   new.slash
+  author.after
   school "school" output.check
   new.block
   output.address.publisher.date
@@ -1434,7 +1436,7 @@ FUNCTION {presort}
 {
   language "russian" =
   	{"!"}
-	{""}  	
+	{""}
   if$
   author.title.sort
   *

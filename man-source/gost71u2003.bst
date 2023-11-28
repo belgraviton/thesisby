@@ -500,7 +500,7 @@ INTEGERS { nameptr namesleft numnames }
 
 FUNCTION {format.names}
 {
-  #1 "{vv~}{ll}{~jj},{~f.}" format.name$
+  #1 "{vv~}{ll}{~jj},{~ff}" format.name$
 }
 
 
@@ -511,7 +511,7 @@ FUNCTION {format.names.rev}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{f.~}{vv~}{ll}{, jj}"
+      "{ff~}{vv~}{ll}{, jj}"
       format.name$ 't :=
       nameptr #1 >
         {
