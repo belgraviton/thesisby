@@ -30,7 +30,7 @@
 %%          \renewcommand{\rmdefault}{ftm}
 %%       will be using font `Times New Roman'
 %% Interval: 1.1
-%% Page numbering: top center
+%% Page numbering: bottom center
 %% Type numbering: all sheets, including with title page (no visible)
 %% Structures:
 %%   Section \chapter 1
@@ -106,9 +106,6 @@ LaTeX document class for thesis]
 
 }% End of the \AtBeginDocument{
 
-\ifx\cyr\undefined
-\newcommand{\cyr}[0]{}
-\fi
 
 % Names
 
@@ -125,14 +122,17 @@ LaTeX document class for thesis]
 \newcommand\appendixname{{\cyr\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}}%
 \newcommand\commentname{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyre}}%
 \newcommand\commentsname{{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}}%
+%\floatname{algorithm}{\cyr\CYRP\cyrr\cyri\cyrm\cyre\cyrch\cyra\cyrn\cyri\cyrya}
 
 %Russian language
 \newcommand{\selectlanguagerus}{
 \renewcommand\contentsname{{\cyr\CYRO\CYRG\CYRL\CYRA\CYRV\CYRL\CYRE\CYRN\CYRI\CYRE}}%
 \renewcommand\listfigurename{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrr\cyri\cyrs\cyru\cyrn\cyrk\cyro\cyrv}}%
 \renewcommand\listtablename{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
-\renewcommand\bibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{} \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh{}  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}}%
-\renewcommand\mybibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya}}%
+\renewcommand\bibname{{\cyr\CYRB\cyri\cyrb\cyrl\cyri\cyro\cyrg\cyrr\cyra\cyrf\cyri\cyrch\cyre\cyrs\cyrk\cyri\cyrishrt{} \cyrs\cyrp\cyri\cyrs\cyro\cyrk}}%
+\renewcommand\mybibname{{\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk{}  \cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyra\cyrc\cyri\cyrishrt{} \cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrt\cyre\cyrl\cyrya{}
+    \cyru\cyrch\cyre\cyrn\cyro\cyrishrt{}
+    \cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}}%
 \renewcommand\indexname{{\cyr\CYRP\CYRR\CYRE\CYRD\CYRM\CYRE\CYRT\CYRN\CYRERY\CYRISHRT{} \CYRU\CYRK\CYRA\CYRZ\CYRA\CYRT\CYRE\CYRL\CYRSFTSN}}%
 \renewcommand\figurename{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}%
 \renewcommand\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
@@ -383,20 +383,34 @@ LaTeX document class for thesis]
     \def\@oddhead{\hfil\thepage}%
     }
 
-% geometry package must be loaded before fancyhdr package:
-% https://tex.stackexchange.com/questions/33874/geometry-fancyhdr-fancyfootc-thepage-is-not-really-centered
-\usepackage{geometry}
-\geometry{a4paper,left=3cm,right=1cm}
-
 \usepackage{fancyhdr}
+%\fancypagestyle{plain}{%
+%    \addtolength{\headheight}{\baselineskip}
+%\fancyhf{} % clear all header and footer fields
+%\fancyhead[C]{\thepage} % except the center
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%}
+
 \fancypagestyle{plain}{%
-	\setlength{\headheight}{17pt}
-%	\addtolength{\headheight}{\baselineskip}
-\fancyhf{} % clear all header and footer fields
-\fancyhead[C]{\thepage} % except the center
-\renewcommand{\headrulewidth}{0pt}
+    \addtolength{\headheight}{\baselineskip}
+%\pagestyle{fancy} % смена стиля оформления страниц
+\fancyhf{} % очистка текущих значений
+
+\fancyfoot[C]{\hspace{15mm}\thepage}
+
+% \ifx\isabstract\undefined 
+% \fancyhead[C]{\hspace{20mm}\thepage} % установка верхнего колонтитула
+% \else
+% \fancyhead[C]{\hspace{20mm}\thepage} % установка верхнего колонтитула
+% %\fancyhead[CO]{\hspace{20mm} \small \thepage} % установка верхнего колонтитула
+% %\fancyhead[CE]{\hspace{-20mm} \small \thepage} % установка верхнего колонтитула
+% \fi
+
+\renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
 \renewcommand{\footrulewidth}{0pt}
 }
+
 \headsep = 3mm
 
 %Sections
@@ -406,6 +420,7 @@ LaTeX document class for thesis]
 \newcounter {section}[chapter]
 \newcounter {subsection}[section]
 \newcounter {subsubsection}[subsection]
+\newcounter {subsubsubsection}[subsubsection]
 \renewcommand \thechapter {\@arabic\c@chapter}
 \renewcommand \thesection {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@section}
 \renewcommand\thesubsection   {\thesection.\@arabic\c@subsection}
@@ -419,7 +434,7 @@ LaTeX document class for thesis]
                          \refstepcounter{chapter}%
                          \typeout{\@chapapp\space\thechapter.}%
                          \addcontentsline{toc}{chapter}%
-%				{\protect\numberline{\thechapter}#1}%
+%                {\protect\numberline{\thechapter}#1}%
                                 {\normalfont
                     \@chapapp\space\thechapter\space\space{} #1}%
                     \else
@@ -457,15 +472,21 @@ LaTeX document class for thesis]
 \newcommand\section{\@startsection {section}{1}{\parindent}%
                                    {3.5ex \@plus 1ex \@minus .2ex}%
                                    {2.3ex \@plus.2ex}%
-                                   {\large\bfseries}}
+                                   {\normalfont\bfseries}}
 \newcommand\subsection{\@startsection{subsection}{2}{\parindent}%
                                     {3.25ex \@plus1ex \@minus.2ex}%
                                     {2.3ex \@plus.2ex}%
                                     {\normalfont\bfseries}}
 \newcommand\subsubsection{\@startsection{subsubsection}{3}{\parindent}%
                                     {3.25ex \@plus1ex \@minus.2ex}%
-                                    {-1em}%
-                                    {\normalfont\bfseries}}
+                                    {2.3ex \@plus.2ex}%
+                                     {\normalfont\bfseries\centering}}
+\newcommand\subsubsubsection{\@startsection{subsubsection}{3}{\parindent}%
+                                    {3.25ex \@plus1ex \@minus.2ex}%
+                                    {2.3ex \@plus.2ex}%
+                                     {\normalfont\bfseries\centering}}
+
+
 
 %Lists
 \setlength\leftmargini  {2.5em}
@@ -516,9 +537,9 @@ LaTeX document class for thesis]
 
 \newenvironment{comments}
                {\noindent\hspace{4em}\small\commentsname{}\relax%
-	        \begin{list}{\@arabic\c@quotetionnum.\hfill}{\usecounter{quotetionnum}\listparindent 1.7em%
-        	    \labelsep = 0pt%
-            	    \labelwidth = 1.5em%
+            \begin{list}{\@arabic\c@quotetionnum.\hfill}{\usecounter{quotetionnum}\listparindent 1.7em%
+                \labelsep = 0pt%
+                    \labelwidth = 1.5em%
                     \itemindent    3.2em%
                     \rightmargin   \leftmargin%
                     \parsep        \z@ \@plus\p@}%
@@ -544,19 +565,19 @@ LaTeX document class for thesis]
 \newlength\Gost@EqRemLen
 \newlength\Gost@@EqRemLen
 \newenvironment{eqrem}{%
-	\begin{longtable}{@{}p{\Gost@@EqRemLen}@{ }p{\Gost@EqRemLen}}
-		{\eqremname \addtocounter{table}{-1}}&%
-	}{%
-	\end{longtable}
+\begin{longtable}{@{}p{\Gost@@EqRemLen}@{ }p{\Gost@EqRemLen}}
+{\eqremname \addtocounter{table}{-1}}&%
+}{%
+ \end{longtable}
 }
 
 \AtBeginDocument{%
-	\makeatletter%
-	\setlength\Gost@EqRemLen{\textwidth}%
-	\addtolength\Gost@EqRemLen{-10mm}%
-	\settowidth\Gost@@EqRemLen{{\eqremname}}%
-	\addtolength\Gost@EqRemLen{-\Gost@@EqRemLen}%
-	\makeatother%
+ \makeatletter%
+  \setlength\Gost@EqRemLen{\textwidth}%
+  \addtolength\Gost@EqRemLen{-10mm}%
+  \settowidth\Gost@@EqRemLen{{\eqremname}}%
+  \addtolength\Gost@EqRemLen{-\Gost@@EqRemLen}%
+ \makeatother%
 }
 
 \newcommand\appendix{\par
@@ -629,6 +650,7 @@ LaTeX document class for thesis]
 \DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
 \DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
 \newcommand\@pnumwidth{1.55em}
+\newcommand\@pnumwidthchap{2.35em}
 \newcommand\@tocrmarg{2.55em}
 \newcommand\@dotsep{4.5}
 \setcounter{tocdepth}{2}
@@ -639,19 +661,21 @@ LaTeX document class for thesis]
 \newcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    \vskip 1.0em \@plus\p@
+    % \vskip 1.0em \@plus\p@
     \setlength\@tempdima{2.3em}%
     \begingroup
       \parindent \z@ \rightskip \@pnumwidth
       \parfillskip -\@pnumwidth
       \leavevmode \bfseries
-      \advance\leftskip\@tempdima
+      %\advance\leftskip\@tempdima
       \hskip -\leftskip
-      \normalfont #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \normalfont #1\nobreak\leavevmode
+      \xleaders\hbox{\hspace{2.5mm}.}\hfill\kern0pt \nobreak\hb@xt@\@pnumwidthchap{\hss #2}\par
+%      \normalfont #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
       \penalty\@highpenalty
     \endgroup
-  \fi}
-
+  \fi
+  }
 
 \newlength{\l@sectionnumwidth}
 \setlength{\l@sectionnumwidth}{2.3em}
@@ -660,8 +684,8 @@ LaTeX document class for thesis]
 \newlength{\l@subsubsectionnumwidth}
 \setlength{\l@subsubsectionnumwidth}{4.1em}
 
-\newcommand*\l@section{\@dottedtocline{1}{0.5em}{\l@sectionnumwidth}}
-\newcommand*\l@subsection{\@dottedtocline{2}{1em}{\l@subsectionnumwidth}}
+\newcommand*\l@section{\@dottedtocline{1}{10mm}{\l@sectionnumwidth}}
+\newcommand*\l@subsection{\@dottedtocline{2}{21mm}{\l@subsectionnumwidth}}
 \newcommand*\l@subsubsection{\@dottedtocline{3}{1.5em}{\l@subsubsectionnumwidth}}
 
 
@@ -684,17 +708,17 @@ LaTeX document class for thesis]
      \addcontentsline{toc}{section}{\bibname}%
       \list{\@biblabel{\@arabic\c@enumiv}\hfill}%
            {\settowidth\labelwidth{\@biblabel{#1.}}%
-		\setlength\labelsep{0em}
-		\leftmargin = 0mm
-		\itemindent = \leftmargin
-		\advance\itemindent\parindent
-		\advance\itemindent\labelwidth
-		\advance\itemindent\labelsep
+        \setlength\labelsep{0em}
+        \leftmargin = 0mm
+        \itemindent = \leftmargin
+        \advance\itemindent\parindent
+        \advance\itemindent\labelwidth
+        \advance\itemindent\labelsep
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
             \renewcommand\theenumiv{\@arabic\c@enumiv}
-	    }
+        }
       \sloppy
       \clubpenalty4000
       \@clubpenalty \clubpenalty
@@ -702,27 +726,28 @@ LaTeX document class for thesis]
       \sfcode`\.\@m}
      {\def\@noitemerr
        {\@latex@warning{Empty `thebibliography' environment}}%
-	\setlength\labelsep{0.5em}
+    \setlength\labelsep{0.5em}
       %\renewcommand\labelenumiv{\theenumiv.}
       \endlist}
 \newenvironment{mybibliography}[1]
      {\section*{\mybibname}%
      \addcontentsline{toc}{section}{\mybibname}%
      \list{\@biblabel{\@arabic\c@enumiv--A}\hfill}%
+     %\list{\@biblabel{\@arabic\c@enumiv}\hfill}%
            {\settowidth\labelwidth{\@biblabel{#1--A.}}%
-		\setlength\labelsep{0em}
-		\leftmargin = 0mm
-		\itemindent = \leftmargin
-		\advance\itemindent\parindent
-		\advance\itemindent\labelwidth
-		\advance\itemindent\labelsep
+        \setlength\labelsep{0em}
+        \leftmargin = 0mm
+        \itemindent = \leftmargin
+        \advance\itemindent\parindent
+        \advance\itemindent\labelwidth
+        \advance\itemindent\labelsep
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
             \renewcommand\theenumiv{\@arabic\c@enumiv}
-		\renewcommand\bibitem[1]{\item\hyp@def{##1}\if@filesw \immediate\write\@auxout
-	       {\string\bibcite{##1}{\@arabic\c@enumiv--A}}\fi\ignorespaces}%
-	    }%end of the second argument of the \list 
+        \renewcommand\bibitem[1]{\item\hyp@def{##1}\if@filesw \immediate\write\@auxout
+           {\string\bibcite{##1}{\@arabic\c@enumiv--A}}\fi\ignorespaces}%
+        }%end of the second argument of the \list
       \sloppy
       \clubpenalty4000
       \@clubpenalty \clubpenalty
@@ -730,7 +755,7 @@ LaTeX document class for thesis]
       \sfcode`\.\@m}%
      {\def\@noitemerr
        {\@latex@warning{Empty `mybibliography' environment}}%
-	\setlength\labelsep{0.5em}
+    \setlength\labelsep{0.5em}
       \endlist}
 \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
 \let\@openbib@code\@empty
@@ -770,12 +795,14 @@ LaTeX document class for thesis]
 \sloppy
 \raggedbottom
 \onecolumn
-%\usepackage{geometry}
-% чтобы исправить верхнее и нижнее поля
-\geometry{a4paper,top=2cm,bottom=2cm}
-
+\usepackage{geometry}
+\ifx\isabstract\undefined
+\geometry{a4paper,top=2cm,bottom=2cm,left=3cm,right=1.5cm}
+\else
+\geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm}
+\fi
 \renewcommand{\@biblabel}[1]{#1.}
-
 \endinput
+
 %%
 %% End of file `thesisby.cls'.

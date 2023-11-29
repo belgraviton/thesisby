@@ -3,7 +3,7 @@
 
 Электронная почта основного разработчика: thesisby@tut.by
 
-[Инструкция для оформления диссертации](http://www.vak.org.by/index.php?go=News&in=view&id=553).
+[Инструкция для оформления диссертации](https://vak.gov.by/On-Approval-of-Instruction).
 
 ## Версия 1.1 (1 сентября 2016 г.):
 
